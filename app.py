@@ -4,12 +4,14 @@ from carro.views import CarroView, CarrosView
 from flask_cors import CORS
 from flask_migrate import Migrate
 from database import db
+from utils.json_serializer import CarroEncoder
 
 
 app = Flask(__name__)
 app.config.from_object('config.CarrosConfig')
 api = Api(app)
 CORS(app)
+app.json_encoder = CarroEncoder
 
 api.add_resource(CarrosView, '/carros/')
 api.add_resource(CarroView, '/carros/<int:codigo>')
