@@ -1,10 +1,7 @@
-import os
-from flask import json, request, jsonify
+from flask import request, jsonify
 from flask_restful import Resource
 from carro.models import Carro
 from database import db
-
-filedb = os.path.join('./', 'data', 'carrodb.json')
 
 
 class CarrosView(Resource):
