@@ -229,10 +229,10 @@ def pdf_cat(input_files, output_stream):
                 input_streams.append(open(filename+'.pdf', 'rb'))
             elif file_extension.lower() == '.csv':
                 txt_to_pdf(input_file, filename+'.csv.pdf')
-                input_streams.append(open(filename+'.pdf', 'rb'))
+                input_streams.append(open(filename+'.csv.pdf', 'rb'))
             elif file_extension.lower() == '.txt':
                 txt_to_pdf(input_file, filename+'.txt.pdf')
-                input_streams.append(open(filename+'.pdf', 'rb'))
+                input_streams.append(open(filename+'.txt.pdf', 'rb'))
         writer = PdfFileWriter()
         for reader in map(PdfFileReader, input_streams):
             for n in range(reader.getNumPages()):
