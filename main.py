@@ -220,6 +220,11 @@ def get_pdfs(list_to_add):
     folder_glob = glob(f'{list_to_add}/*') 
     folder_glob_reduzido = [s for s in folder_glob if not s.__contains__('001-peticao')]
     all_files += folder_glob_reduzido
+    inicio = '01-Minuta'
+    inicio_glob = glob(path.join(list_to_add,inicio+'*'))
+    if inicio_glob:
+        inicio_glob_reduzido = [s for s in all_files if not s.__contains__(inicio)]
+        all_files = inicio_glob + inicio_glob_reduzido
     return all_files
 
 
